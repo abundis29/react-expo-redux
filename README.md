@@ -1,4 +1,4 @@
-# **_VivifyIdeas Expo boilerplate_**
+# **Expo boilerplate REDUX **
 
 Expo SDK version: **35.0.0**
 
