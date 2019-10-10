@@ -1,26 +1,33 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { Button, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import $t from 'i18n';
+import { Colors, Metrics, Fonts } from '../../../themes';
 
 import { Modal, ModalHeader, ModalBody, ModalFooter } from './baseModal';
 import NavigationService from '../../../services/NavigationService';
 
 const ErrorModal = ({ isVisible, closeModal }) => {
   return (
-    <Modal isVisible={isVisible} closeModal={closeModal}>
+    <Modal style={styles.container} isVisible={isVisible} closeModal={closeModal}>
       <ModalHeader>
-        <Text>{$t('error.somethingWrong')}</Text>
+        <Text style={styles.modalHeader}>{$t('error.somethingWrong')}</Text>
       </ModalHeader>
       <ModalBody>
-        <Text>{$t('error.doYouWantToRestart')}</Text>
+        <Text style={styles.message}>{$t('error.doYouWantToRestart')}</Text>
       </ModalBody>
       <ModalFooter>
-        <TouchableOpacity onPress={closeModal}>
-          <Text>{$t('error.cancel')}</Text>
+        <TouchableOpacity>
+          <Button onPress={closeModal} title={$t('error.cancel')} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => NavigationService.navigate('AuthLoading')}>
-          <Text>{$t('error.restart')}</Text>
+        <TouchableOpacity>
+          <Button
+            onPress={() => {
+              closeModal();
+              NavigationService.navigate('AuthLoading');
+            }}
+            title={$t('error.restart')}
+          />
         </TouchableOpacity>
       </ModalFooter>
     </Modal>
@@ -33,3 +40,25 @@ ErrorModal.propTypes = {
   isVisible: PropTypes.bool,
   closeModal: PropTypes.func
 };
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(52, 52, 52, 0.8)',
+    flex: 1,
+    justifyContent: 'center'
+  },
+  message: {
+    color: Colors.steel,
+    fontFamily: Fonts.type.base,
+    fontSize: Fonts.size.regular,
+    fontWeight: 'bold',
+    marginHorizontal: Metrics.baseMargin,
+    marginTop: Metrics.baseMargin,
+    textAlign: 'center'
+  },
+  modalHeader: {
+    color: 'red',
+    textAlign: 'center'
+  }
+});

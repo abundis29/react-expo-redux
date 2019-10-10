@@ -55,6 +55,9 @@
     "socialLoginError": "Social login error",
     "close": "Close"
   },
+  "menu": {
+    "first": "Optiones"
+  },
   "profile": {
     "changePassword": {
       "changePassword": "Change password",

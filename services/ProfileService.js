@@ -24,8 +24,8 @@ class ProfileService extends ApiService {
       formData.append('avatar', { uri, name, type });
     }
 
-    formData.append('first_name', data.first_name);
-    formData.append('last_name', data.last_name);
+    formData.append('firstName', data.first_name);
+    formData.append('lastName', data.last_name);
     return this.apiClient.post(ENDPOINTS.USER, formData);
   };
 }

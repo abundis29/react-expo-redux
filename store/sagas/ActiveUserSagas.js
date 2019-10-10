@@ -2,6 +2,8 @@ import { call, put } from 'redux-saga/effects';
 import { setLoader } from '../actions/LoaderAction';
 import authService from '../../services/AuthService';
 import NavigationService from '../../services/NavigationService';
+// import config from '../../config';
+
 import {
   setSignInError,
   setGlobalError,

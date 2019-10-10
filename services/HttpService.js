@@ -2,7 +2,7 @@ import axios from 'axios';
 import { AsyncStorage } from 'react-native';
 import Sentry from 'sentry-expo';
 
-import config from '../config';
+// import config from '../config';
 
 class HttpService {
   constructor(options = {}) {
@@ -47,7 +47,8 @@ class HttpService {
 }
 
 const options = {
-  baseURL: config.API_BASE_URL
+  // baseURL: config.API_BASE_URL
+  baseURL: 'https://64388fdf.ngrok.io'
 };
 const httpService = new HttpService(options);
 

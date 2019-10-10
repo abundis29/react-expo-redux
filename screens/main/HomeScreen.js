@@ -147,6 +147,9 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   welcomeImage: {
+    borderColor: '#d6d7da',
+    borderRadius: 4,
+    borderWidth: 0.5,
     height: 80,
     marginLeft: -10,
     marginTop: 3,

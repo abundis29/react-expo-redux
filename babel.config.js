@@ -4,12 +4,17 @@ module.exports = function bpe(api) {
     'babel-preset-expo',
     'module:metro-react-native-babel-preset',
     'module:react-native-dotenv'
+    // 'module:react-native'
   ];
-  const plugins = [];
+  const plugins = [
+    '@babel/plugin-proposal-decorators',
+    { decoratorsBeforeExport: true, legacy: true }
+  ];
 
   const envDevelopment = {
     presets: presets,
     plugins: [
+      ['@babel/plugin-proposal-decorators', { legacy: true }],
       '@babel/transform-react-jsx-source',
       [
         'module-resolver',

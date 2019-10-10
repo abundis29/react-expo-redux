@@ -28,13 +28,18 @@ ModalWrapper.propTypes = {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.16)',
-    flexGrow: 1,
+    backgroundColor: 'rgba(52, 52, 52, 0.8)',
+    flex: 1,
     justifyContent: 'center'
   },
   modalWrap: {
+    alignSelf: 'stretch',
     backgroundColor: 'white',
-    height: '50%',
-    width: '50%'
+    borderColor: '#d6d7da',
+    borderRadius: 10,
+    borderWidth: 1,
+    margin: 18,
+    minHeight: 100,
+    textAlign: 'center'
   }
 });

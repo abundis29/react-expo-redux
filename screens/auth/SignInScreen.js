@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Button, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connect } from 'react-redux';
@@ -8,6 +8,22 @@ import $t from 'i18n';
 import { login, facebookLogin, googleLogin } from '../../store/actions/UserActions';
 import { SignInForm } from '../../components/auth/SignInForm';
 import { signInErrorSelector } from '../../store/selectors/ErrorSelector';
+// import { Fonts, Colors } from '../../themes';
+
+const styles = StyleSheet.create({
+  // buttonText: {
+  //   borderColor: Colors.charcoal,
+  //   color: Colors.snow,
+  //   fontFamily: Fonts.type.bold,
+  //   fontSize: Fonts.size.medium,
+  //   margin: 18,
+  //   textAlign: 'right'
+  // },
+  container: {
+    backgroundColor: 'white',
+    flex: 1
+  }
+});
 
 class SignInScreen extends React.Component {
   static navigationOptions = {
@@ -35,17 +51,33 @@ class SignInScreen extends React.Component {
   };
 
   render() {
-    const { signInError, facebookLogin, googleLogin } = this.props;
+    // const { signInError, facebookLogin, googleLogin } = this.props;
+    const { signInError } = this.props;
 
     return (
       <View style={styles.container}>
         <KeyboardAwareScrollView enableOnAndroid>
           <SignInForm onSubmit={this.onSubmit} signInError={signInError} />
-
-          <Button title="Sign in with Facebook!" onPress={facebookLogin} />
-          <Button title="Sign in with Google!" onPress={googleLogin} />
-          <Button title="Sign up!" onPress={this.goToSignUp} />
-          <Button title="Forgot password" onPress={this.goToForgotPassword} />
+          {/* <Button
+            style={styles.buttonText}
+            title="Sign in with Facebook!"
+            onPress={facebookLogin}
+          />
+          <Button
+            style={styles.buttonText}
+            title="Sign in with Google!"
+            onPress={googleLogin}
+          />
+          <Button
+            style={styles.buttonText}
+            title="Sign up!"
+            onPress={this.goToSignUp}
+          />
+          <Button
+            style={styles.buttonText}
+            title="Forgot password"
+            onPress={this.goToForgotPassword}
+          /> */}
         </KeyboardAwareScrollView>
       </View>
     );
@@ -68,10 +100,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SignInScreen);
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-    flex: 1
-  }
-});

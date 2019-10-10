@@ -125,7 +125,7 @@ export default connect(
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: 'red',
     flex: 1
   }
 });
